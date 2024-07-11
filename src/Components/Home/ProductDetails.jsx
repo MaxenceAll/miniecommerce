@@ -22,21 +22,21 @@ function ProductDetails() {
     const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
-        const getData = async () => {
-            try {
-                const response = await fetcher.get(`/api/v1/products/${id}`);
-                if(response){
-                    setSelectedProduct(response);                    
-                    document.title = `E-Redux | Consultation de : ${response?.name}`;
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        getData();
-        // const product = fakeData.find(item => item.id === parseInt(id));
-        // setSelectedProduct(product);
-        // document.title = `E-Redux | Consultation de : ${product?.name}`;
+        // const getData = async () => {
+        //     try {
+        //         const response = await fetcher.get(`/api/v1/products/${id}`);
+        //         if(response){
+        //             setSelectedProduct(response);                    
+        //             document.title = `E-Redux | Consultation de : ${response?.name}`;
+        //         }
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+        // };
+        // getData();
+        const product = fakeData.find(item => item.id === parseInt(id));
+        setSelectedProduct(product);
+        document.title = `E-Redux | Consultation de : ${product?.name}`;
     }, [id]);
 
     const handleAddToCart = () => {
